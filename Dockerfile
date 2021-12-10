@@ -5,6 +5,7 @@ RUN apt-get update \
         s3cmd \
         postgresql-client \
         mysql-client \
+        subversion \
         curl \
         ca-certificates \
  && apt-get --purge -y autoremove \
