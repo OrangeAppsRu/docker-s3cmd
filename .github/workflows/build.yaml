@@ -19,23 +19,23 @@ jobs:
           IMAGE: ${{ github.repository }}
         run: |
           image=`echo -n "${IMAGE}" | tr 'A-Z' 'a-z'`
-          echo "::set-output name=IMAGE::$(echo $image)"
+          echo "IMAGE=${image}" >> $GITHUB_OUTPUT
       - name: Login to registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ steps.env.outputs.IMAGE }}
           flavor: |
             latest=true
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: .
           push: true
