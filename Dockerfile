@@ -12,7 +12,7 @@ RUN apt-get update \
  && curl -L https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
  && echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \
  && apt-get update \
- && apt-get install -y --no-install-recommends postgresql-client-12 postgresql-client-13 \
+ && apt-get install -y --no-install-recommends postgresql-client-12 postgresql-client-13 postgresql-client-16 \
  && apt-get --purge -y autoremove \
  && apt-get clean && apt-get autoclean \
  && rm -rf /var/lib/apt/lists
