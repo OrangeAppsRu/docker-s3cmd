@@ -17,4 +17,4 @@ RUN apt-get update \
  && apt-get clean && apt-get autoclean \
  && rm -rf /var/lib/apt/lists
 
-ENV PG_VERSION=12
+ENV PG_VERSION=16
